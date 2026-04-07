@@ -1,17 +1,18 @@
 import { useEffect, useMemo, useState } from "react";
 import { api } from "./api/api";
-import type {
-  AeronaveDTO,
-  Fabricante,
-  Page,
-  AeronavesPorDecada,
-  AeronavePorFabricanteDTO,
-} from "./api/types";
+import type { AeronaveDTO, Fabricante, Page } from "./api/types";
 import "./styles.css";
 
-function asArray<T>(v: unknown): T[] {
-  return Array.isArray(v) ? (v as T[]) : [];
-}
+type DecadaRawItem = {
+  decada: number | string;
+  aeronaves: unknown[];
+};
+
+type FabricanteRawItem = {
+  fabricante: string;
+  aeronaves: unknown[];
+};
+
 
 // Normaliza /por-decada para o layout da tela (Década 90, 00, 10...)
 export function normalizeDecadas(
