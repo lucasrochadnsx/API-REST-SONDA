@@ -6,9 +6,9 @@ spring:
     name: aeronaveV2
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/aeronave_db
-    username: postgres
-    password: postgres
+    url: jdbc:postgresql://dpg-d765em14tr6s73dffgp0-a:5432/usermanagement_xyll
+    username: user
+    password: vSwuRiiCt7Ce29wFohzZ4ABwN2JGsyxA
     driver-class-name: org.postgresql.Driver
 
   jpa:
