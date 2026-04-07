@@ -21,6 +21,7 @@ spring:
     locations: classpath:db/migration
     baseline-on-migrate: true
 
+
 app:
   cors:
     allowed-origins: "https://69d46761ae4b7f00d734502c--sdteste.netlify.app/"
