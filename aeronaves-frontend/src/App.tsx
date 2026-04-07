@@ -4,14 +4,22 @@ import type {
   AeronaveDTO,
   Fabricante,
   Page,
-  AeronavesPorDecada,
-  AeronavePorFabricanteDTO,
+
 } from "./api/types";
 import "./styles.css";
 
-function asArray<T>(v: unknown): T[] {
-  return Array.isArray(v) ? (v as T[]) : [];
-}
+type DecadaRawItem = {
+  decada: number;
+  quantidade: number;
+  aeronaves?: any[];
+};
+
+type FabricanteRawItem = {
+  fabricante: string;
+  quantidade: number;
+  aeronaves?: any[];
+};
+
 
 // Normaliza /por-decada para o layout da tela (Década 90, 00, 10...)
 export function normalizeDecadas(
@@ -24,11 +32,11 @@ export function normalizeDecadas(
       const item = (x ?? {}) as DecadaRawItem;
 
       const ano = Number(item.decada);
-      const lista = Array.isArray(item.aeronaves) ? item.aeronaves : [];
+      const qtd = Number(item.quantidade ?? 0); // 👈 CORRETO
 
       return {
         label: `Década ${ano}`,
-        qtd: lista.length,
+        qtd,
         ano,
       };
     })
@@ -47,15 +55,15 @@ export function normalizeFabricantes(
       const item = (x ?? {}) as FabricanteRawItem;
 
       const fabricante =
-        typeof item.fabricante === 'string'
+        typeof item.fabricante === "string"
           ? item.fabricante
-          : 'DESCONHECIDO';
+          : "DESCONHECIDO";
 
-      const lista = Array.isArray(item.aeronaves) ? item.aeronaves : [];
+      const qtd = Number(item.quantidade ?? 0); // 👈 CORRETO
 
       return {
         label: fabricante,
-        qtd: lista.length,
+        qtd,
         fabricante,
       };
     })
