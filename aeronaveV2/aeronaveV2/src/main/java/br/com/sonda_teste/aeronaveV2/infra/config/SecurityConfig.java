@@ -39,7 +39,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("https://69d46761ae4b7f00d734502c--sdteste.netlify.app/"));
+        configuration.setAllowedOrigins(Arrays.asList("https://69d4758168d67f0008739441--sdteste.netlify.app/"));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
         configuration.setAllowCredentials(true); // se estiver usando cookies/autenticação
