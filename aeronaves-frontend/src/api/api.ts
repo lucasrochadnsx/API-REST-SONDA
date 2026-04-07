@@ -5,7 +5,7 @@ import type {
   AeronavePorFabricanteDTO,
 } from "./types";
 
-const BASE = import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8080";
+const BASE = import.meta.env.VITE_API_BASE_URL ?? "https://api-rest-sonda.onrender.com";
 
 async function http<T>(path: string, init?: RequestInit): Promise<T> {
   const res = await fetch(`${BASE}${path}`, {
